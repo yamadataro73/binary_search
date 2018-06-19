@@ -6,12 +6,23 @@ int A[100000];
 
 
 int main(){
-  int i, lb, ub;
-  scanf("%d%d", &n, &k);
-  for(i = 0; i < n; i++){
-    scanf("%d", &A[i]);
-  }
-
-
-  return 0;
+    int i,ok,ng;
+    scanf("%d%d", &n, &k);
+    for(i = 0; i < n; i++){
+        scanf("%d", &A[i]);
+    }
+    ok=0;
+    ng=100000001;
+    while(ng-ok>1){
+        int mid=(ok+ng)/2;
+        int tmp=0;
+        for(i=0;i<n;i++){
+            tmp+=A[i]/mid;
+            if(tmp>=k)break;
+        }
+        if(tmp<k)ng=mid;
+        else ok=mid;
+    }
+    printf("%d\n",ok);
+    return 0;
 }
