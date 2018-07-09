@@ -12,7 +12,7 @@ int main(){
         scanf("%d", &A[i]);
     }
     ok=0;
-    ng=100000001;
+    ng=1e9+1;
     while(ng-ok>1){
         int mid=(ok+ng)/2;
         int tmp=0;
